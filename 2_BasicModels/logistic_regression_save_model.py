@@ -1,4 +1,7 @@
 '''
+This is exactly the same code as logistic_regression.py but 
+this saves the generated model to the /output directory.
+
 A logistic regression learning algorithm example using TensorFlow library.
 This example is using the MNIST database of handwritten digits
 (http://yann.lecun.com/exdb/mnist/)
@@ -41,6 +44,9 @@ optimizer = tf.train.GradientDescentOptimizer(learning_rate).minimize(cost)
 # Initializing the variables
 init = tf.global_variables_initializer()
 
+# To save the model
+saver = tf.train.Saver()
+
 # Launch the graph
 with tf.Session() as sess:
     sess.run(init)
@@ -66,6 +72,10 @@ with tf.Session() as sess:
 
     # Test model
     correct_prediction = tf.equal(tf.argmax(pred, 1), tf.argmax(y, 1))
+
     # Calculate accuracy
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
     print("Accuracy:", accuracy.eval({x: mnist.test.images, y: mnist.test.labels}))
+
+    # Store output model in a file
+    saver.save(sess, save_path='/output/my-logistic-regression-model')

@@ -1,4 +1,7 @@
 # TensorFlow Examples
+
+Note: These examples are originally from [aymericdamien/TensorFlow-Examples](https://github.com/aymericdamien/TensorFlow-Examples) repository.
+
 TensorFlow Tutorial with popular machine learning algorithms implementation. This tutorial was designed for easily diving into TensorFlow, through examples.
 
 It is suitable for beginners who want to find clear and concise examples about TensorFlow. For readability, the tutorial includes both notebook and code with explanations.
@@ -106,4 +109,5 @@ matplotlib
 cuda
 tflearn (if using tflearn examples)
 ```
-For more details about TensorFlow installation, you can check [TensorFlow Installation Guide](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/g3doc/get_started/os_setup.md)
+Floyd takes care of making these dependencies available at run time.
+

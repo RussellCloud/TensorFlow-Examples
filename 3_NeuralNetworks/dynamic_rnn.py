@@ -10,6 +10,7 @@ Project: https://github.com/aymericdamien/TensorFlow-Examples/
 '''
 
 from __future__ import print_function
+import sys
 
 import tensorflow as tf
 import random
@@ -162,7 +163,7 @@ correct_pred = tf.equal(tf.argmax(pred,1), tf.argmax(y,1))
 accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
 
 # Initializing the variables
-init = tf.global_variables_initializer()
+init = tf.initialize_all_variables()
 
 # Launch the graph
 with tf.Session() as sess:
@@ -184,6 +185,7 @@ with tf.Session() as sess:
             print("Iter " + str(step*batch_size) + ", Minibatch Loss= " + \
                   "{:.6f}".format(loss) + ", Training Accuracy= " + \
                   "{:.5f}".format(acc))
+            sys.stdout.flush()
         step += 1
     print("Optimization Finished!")
 
